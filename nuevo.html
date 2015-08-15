@@ -4,6 +4,29 @@
          <title> HOLA </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
+        <script>
+          function validateForm(theForm) {
+               var fname = theForm.firstname.value;
+               var lname = theForm.lastname.value;
+               if ( !isValidName(fname) || !isValidName(lname)) {
+                    alert("ERROR IN NAME. NAMES CAN'T BE NUMERIC.");
+                    return false;
+               }
+               var email = theForm.email.value;
+               if ( !isValidEmail(email)) {
+                    alert("ERROR IN EMAIL");
+               }
+          
+          }
+          function isValidName(name) {
+               var pattern = new RegExp(/^[a-z]{2,100}$/ig);
+               return pattern.test(name);
+          }
+          function isValidEmail(addres) {
+               var pattern = new RegExp(/^\w{2,100}@\w{2,100}.\w{1,4}$/ig);
+               return pattern.test(addres);
+          }
+        </script>
     </head>
      <body>
      <div class="jumbotron col-xs-6 col-xs-push-3 col-xs-12">
@@ -15,9 +38,9 @@
             <div class="col-xs-9 col-md-7"><input type="text" name="lastname" value=""></div><br> 
             
             <div class="text-right col-xs-3 col-md-5">Mail:</div>
-            <div class="col-xs-9 col-sm-7"><input type="Mail" class="text-box"></div>
+            <div class="col-xs-9 col-sm-7"><input type="Mail" name="mail"class="text-box"></div>
             <div class="text-right col-xs-3 col-sm-5">Phone Number:</div>
-            <div class="col-xs-9 col-sm-7"><input type="Phone Number" class="text-box"></div>
+            <div class="col-xs-9 col-sm-7"><input type="Phone Number" name="phnumber"class="text-box"></div>
             <div class="text-right col-xs-3 col-md-5">Gender:</div>
             <div class="col-xs-9 col-md-7">
                 <input type="radio" name="sex" value="male" checked>Male<br>
